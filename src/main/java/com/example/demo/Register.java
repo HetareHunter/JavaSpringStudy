@@ -13,9 +13,18 @@ public class Register {
 		return "input.html";
 	}
 	
+	/**
+	 * alt+shift+jでこういうドキュメント作れるよ
+	 * @param rb
+	 * RegisterBeanのrbを受け取るタイミングで@ModelAttributeでリクエストパラメータの割り当てをしてくれる。
+	 * つまりホーム画面の情報(input.html)RegisterBeanのrbに代入される
+	 * @param m
+	 * ModelAndViewはmodelとviewの情報を持つオブジェクトであり、
+	 * addObjectでmodelの情報を持たせている
+	 * setViewNameでviewの情報を持たせている
+	 * @return
+	 */
 	@RequestMapping("/register")
-	// RegisterBeanのrbを受け取るタイミングで@ModelAttributeでリクエストパラメータの割り当てをしてくれる。
-	// つまりホーム画面の情報(input.html)RegisterBeanのrbに代入される
 	public ModelAndView register(@ModelAttribute RegisterBean rb,ModelAndView m) {
 		m.addObject("rb",rb);
 		m.setViewName("register.html");
